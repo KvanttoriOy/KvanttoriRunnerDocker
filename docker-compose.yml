@@ -1,0 +1,33 @@
+version: "3.7"
+
+services:
+  github-runner:
+    image: myoung34/github-runner:latest
+    environment:
+      RUNNER_NAME: "${GITHUB_RUNNER_NAME}"
+      RUNNER_TOKEN: "${GITHUB_RUNNER_TOKEN}"
+      RUNNER_WORKDIR: /tmp/runner/work
+      RUNNER_SCOPE: 'org'
+      ORG_NAME: KvanttoriOy
+      LABELS: linux,x64,gpu
+    security_opt:
+      # needed on SELinux systems to allow docker container to manage other docker containers
+      - label:disable
+    volumes:
+      - '/var/run/docker.sock:/var/run/docker.sock'
+      - '/tmp/runner:/tmp/runner'
+      # note: a quirk of docker-in-docker is that this path
+      # needs to be the same path on host and inside the container,
+      # docker mgmt cmds run outside of docker but expect the paths from within
+  gitlab-runner:
+    container_name: gitlab-runner
+    restart: always
+    volumes:
+        - '/var/run/docker.sock:/var/run/docker.sock'
+        - 'gitlab-runner-config:/etc/gitlab-runner'
+    image: 'gitlab/gitlab-runner:latest'
+
+volumes:
+  gitlab-runner-config:
+      external: false
+    
