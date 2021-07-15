@@ -4,12 +4,10 @@ This is a docker-compose file for setting up two runners for both gitlab and git
 # First time setup:
 ## Gitlab:
 
-
 Follow the setup by running:
 ```docker run --rm -it -v kvanttorirunnerdocker_gitlab-runner-config:/etc/gitlab-runner gitlab/gitlab-runner:latest register```
 
 **Instance Url** is `https://gitlab.com`
-
 
 **Registeration token** must be gotten from an **admin**
 
@@ -17,7 +15,7 @@ Follow the setup by running:
 
 When prompted with **type**, select `docker`
 
-**Default docker image** can be set as `node`
+**Default docker image** can be set as `node:lts`
 
 ## Github:
 
