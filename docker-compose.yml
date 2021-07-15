@@ -2,7 +2,9 @@ version: "3.7"
 
 services:
   github-runner:
+    container_name: github-runner
     image: myoung34/github-runner:latest
+    restart: always
     environment:
       RUNNER_NAME: "${GITHUB_RUNNER_NAME}"
       RUNNER_TOKEN: "${GITHUB_RUNNER_TOKEN}"
