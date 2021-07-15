@@ -11,7 +11,9 @@ Follow the setup by running:
 
 **Registeration token** must be gotten from an **admin**
 
-**Enter a description** and optionally **tags**
+Enter a **description**
+
+Enter at least the **tag** ```kvanttori``` 
 
 When prompted with **type**, select `docker`
 
