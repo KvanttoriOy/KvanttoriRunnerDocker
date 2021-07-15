@@ -1,3 +1,6 @@
+# What's this?
+This is a docker-compose file for setting up two runners for both gitlab and github within kvanttori, they're auto restarting and need to only be set up once
+
 # First time setup:
 ## Gitlab:
 
@@ -22,6 +25,13 @@ Enter creds into .env,
 
 Runner token has to be gotten from an admin
 
-# Running
-It's as simple as running
-```docker-compose up -d```
+## First time docker run
+It's as simple as running ```docker-compose up -d```, this will create the containers and volumes for you
+
+#  Stopping and resuming
+```docker-compose stop```
+
+```docker-compose start```
+
+# Removing containers and volumes
+```docker-compose down```
